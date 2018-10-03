@@ -1,0 +1,16 @@
+Se modifica el archivo .env para configurar la coneccion a la base.
+Se inicia un servidor:
+php -S localhost:8000 -t public
+
+Se crean los archivos:
+app/Informe.php (modelo)
+app/Http/Controllers/InformeController (controlador)
+routes/web.php (rutas de acceso)
+
+
+GET /informes — Fetch all informe resource
+POST /informes— Create a new informe resource
+GET /informe/{id} — Fetch a informe resource by id
+PUT /informe/{id} — Update a informe resource by id
+DELETE /informe/{id}- Delete a informe resource by id
+
