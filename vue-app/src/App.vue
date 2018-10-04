@@ -1,28 +1,30 @@
 <template>
   <v-app id="app">
+    <!-- BARRA LATERAL DE NAVEGACIÓN -->
     <v-navigation-drawer
       v-model="drawer"
       clipped
       fixed
       app
     >
+    <!-- AVATAR -->
     <v-toolbar flat class="transparent pl-5 mb-3">
         <v-list>
           <v-list-tile avatar>
             <v-list-tile-avatar>
               <img src="https://randomuser.me/api/portraits/men/3.jpg">
             </v-list-tile-avatar>
-
             <v-list-tile-content>
               <v-list-tile-title>Lucas Lagos</v-list-tile-title>
               <v-list-tile-sub-title>Sujeto de prueba</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
-      </v-toolbar>
+    </v-toolbar>
+    <!-- FIN AVATAR -->
           <v-divider></v-divider>
+      <!-- LISTA DE OPCIONES -->
       <v-list dense>
-        
         <v-list-tile to="/">
           <v-list-tile-action>
             <v-icon>dashboard</v-icon>
@@ -40,7 +42,11 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+      <!-- FIN LISTA DE OPCIONES -->
     </v-navigation-drawer>
+    <!-- FIN BARRA LATERAL DE NAVEGACIÓN -->
+
+    <!-- NAVBAR TOP -->
     <v-toolbar app fixed clipped-left color='cyan darken-1' dark>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title><v-btn icon large>
@@ -58,8 +64,10 @@
       <v-btn icon>
         <v-icon>settings</v-icon>
       </v-btn>
-      
     </v-toolbar>
+    <!-- FIN NAVBAR TOP -->
+
+    <!-- CONTENIDO -->
     <v-content>
       <v-container fluid>
             <v-fade-transition mode="out-in">
@@ -67,6 +75,9 @@
             </v-fade-transition>
         </v-container>
     </v-content>
+    <!-- FIN CONTENIDO -->
+
+    <!-- FOOTER -->
     <v-footer app fixed height="auto">
       <v-card
       class="flex"
@@ -78,16 +89,14 @@
       </v-card-actions>
     </v-card>
     </v-footer>
+    <!-- FIN FOOTER -->
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import axios from 'axios'
 export default {
   name: 'app',
   components: {
-    HelloWorld
   },
   data: () => ({
       drawer: true
@@ -97,12 +106,3 @@ export default {
     }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-</style>

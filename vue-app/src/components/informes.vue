@@ -12,7 +12,7 @@
             <v-card-title primary-title>
             <div>
                 <div class="headline">{{informe.titulo}}</div>
-                <span class="grey--text">Fecha limite: {{informe.fechalimite}}</span>
+                <span class="grey--text">Fecha limite: {{moment(informe.fechalimite).format("D/M/YY")}}</span>
             </div>
             </v-card-title>
 
@@ -28,18 +28,21 @@
 
 <script>
 import axios from 'axios'
+import moment from 'moment'
 export default{
     data(){
         return{
+            moment: moment,
             informes: [],
         }
     },
     mounted(){
+        moment.locale('es')
         var self= this;
         axios.get('http://localhost:8000/api/informes')
         .then(function (response) {
             self.informes= response.data;
-        console.log('Informes: ', response.data);
+        //console.log('Informes: ', response.data);
         })
         .catch(function (error) {
         console.log('Error: ', error);

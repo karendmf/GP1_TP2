@@ -11,13 +11,14 @@
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "moment": "^2.22.2",
+    "npm": "^6.4.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuetify": "^1.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
-    "babel-loader": "^6.0.0",
+    "babel-loader": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
