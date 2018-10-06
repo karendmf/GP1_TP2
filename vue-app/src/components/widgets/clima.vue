@@ -31,7 +31,6 @@
                     <v-list-tile-content>
                         <v-list-tile-title>Nivel de confort</v-list-tile-title>
                         <v-list-tile-sub-title class="text--primary">Humedad: {{ clima.channel.atmosphere.humidity}}%</v-list-tile-sub-title>
-                        <v-list-tile-sub-title class="text--primary">Índice UV: {{ clima.channel.atmosphere.rising}}</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list>

@@ -1,6 +1,27 @@
 <template>
     <v-container fluid grid-list-md id="informes">
-        <v-layout row wrap>
+        <div class="loading" v-if="loading">
+            Cargando...
+        </div>
+        <div v-if="error">
+            <v-alert
+            :value="true"
+            color="error"
+            icon="warning"
+            outline
+            >
+            {{ error }}
+            </v-alert>
+            <v-alert
+            :value="true"
+            color="cyan darken-1"
+            icon="priority_high"
+            >
+            Para poder ver los informes, la base de datos y el servidor de Lumen deben estar funcionando correctamente.
+            </v-alert>
+            
+        </div>
+        <v-layout row wrap v-if="informes">
             <v-flex xs6 sm3 v-for="informe in informes" :key="informe.id">
                 <v-card>
                     <v-card-title primary-title>
@@ -25,20 +46,31 @@ export default {
     data() {
         return {
             moment: moment,
-            informes: [],
+            informes: null,
+            loading: false,
+            error: null
         }
     },
     mounted() {
         moment.locale('es')
-        var self = this;
-        axios.get('http://localhost:8000/api/informes')
-            .then(function (response) {
-                self.informes = response.data;
-                //console.log('Informes: ', response.data);
-            })
-            /* .catch(function (error) {
-                console.log('Error: ', error);
-            }); */
+        this.fetchData()
+    },
+    methods: {
+        fetchData (){
+            var self = this
+            self.loading = true
+            self.error = null;
+            axios.get('http://localhost:8000/api/informes')
+                .then(function (response) {
+                    self.loading = false
+                    self.informes = response.data;
+                    //console.log('Informes: ', response.data);
+                })
+                .catch(function (err) {
+                    self.error = err.toString()
+                    self.loading = false
+                });
+        }
     }
 }
 </script>

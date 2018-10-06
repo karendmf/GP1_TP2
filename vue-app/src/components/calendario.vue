@@ -10,35 +10,41 @@
    import moment from 'moment'
    export default {
        data() {
-           const CALENDAR_ID = 'invlab084i4liin7tbdd65g83s@group.calendar.google.com'
-           const API_KEY = 'AIzaSyCSpyzQ_FvOt6JIPSPxVy_vLUiFhsmEODw'
-           let url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}&orderBy=startTime&singleEvents=true`
-           const getEventos = () => {
-               return axios.get(url).then((response) => {
-                   return response.data.items;
-               });
-           };
-           var evt = [];
-           getEventos().then((response) => {
-               var val;
-               for (val of response) {
-                   const date = this.moment(val.start.dateTime).format('YYYY/M/DD')
-                   const title = val.summary
-                   const desc = val.description
-                   if (date >= moment().format('YYYY/M/DD')) {
-                       evt.push({
-                           date,
-                           title,
-                           desc
-                       });
-                   }
-               }
-           });
            return {
                moment: moment,
-               evt,
+               evt: [],
            }
-       }
+       },
+       mounted() {
+           moment.locale('es')
+           this.fetchData()
+       },
+       methods: {
+           fetchData() {
+               var self = this
+               const CALENDAR_ID = 'invlab084i4liin7tbdd65g83s@group.calendar.google.com'
+               const API_KEY = 'AIzaSyCSpyzQ_FvOt6JIPSPxVy_vLUiFhsmEODw'
+               let url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}&orderBy=startTime&singleEvents=true`
+
+               axios.get(url).then((response) => {
+                   const todos = response.data.items;
+                   var val;
+                   for (val of todos) {
+                       const date = self.moment(val.start.dateTime).format('YYYY/M/DD')
+                       const title = val.summary
+                       const desc = val.description
+                       if (date >= moment().format('YYYY/M/DD')) {
+                           self.evt.push({
+                               date,
+                               title,
+                               desc
+                           });
+                       }
+                   }
+               });
+           },
+       },
+       
 
    }
 </script>

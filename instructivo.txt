@@ -3,7 +3,7 @@ Importar la base de datos reports.sql ubicada en la raiz del proyecto. Si se qui
 El proyecto se separa en 2 partes:
 
 lumen-api:
-Contiene la API, encargada del CRUD de informes. Envia y recibe datos en formato JSON.
+Contiene la API, encargada del CRUD de informes. Formato JSON.
 GET /informes — Fetch all informe resource
 POST /informes— Create a new informe resource
 GET /informe/{id} — Fetch a informe resource by id
