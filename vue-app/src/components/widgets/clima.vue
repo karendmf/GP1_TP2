@@ -58,7 +58,6 @@
                 .then(function (response) {
                     self.clima = response.data.query.results;
                     //console.log('clima: ', response.data.query.results);
-
                 })
         }
     }

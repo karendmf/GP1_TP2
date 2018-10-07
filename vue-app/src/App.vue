@@ -44,6 +44,14 @@
             <v-list-tile-title>Calendario</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile to="/estadisticas">
+          <v-list-tile-action>
+            <v-icon>event</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Estadisticas</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
       <!-- FIN LISTA DE OPCIONES -->
     </v-navigation-drawer>
