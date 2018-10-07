@@ -1,8 +1,24 @@
+//** NOTA DE DOCUMENTACION **//
+Debido a que el trabajo esta orientado al uso de APIs, solo están documentados los archivos importantes, donde son utilizadas las mismas. A continuación se señalan los archivos:
+
+GP1_TP2/
+└── vue-app/
+    └── src/
+        └── components/
+            ├── widgets/
+            │   ├── clima.vue
+            │   └── fechas.vue
+            ├── calendario.vue
+            └── estadisticas.vue
+
+
+
+//** INSTRUCTIVO DE USO **//
 Importar la base de datos reports.sql ubicada en la raiz del proyecto. Si se quiere usar otro nombre, tambien debera ser cambiado en el archivo .env de la carpeta lumen-api.
 
 El proyecto se separa en 2 partes:
 
-lumen-api:
+**lumen-api**:
 Contiene la API, encargada del CRUD de informes. Formato JSON.
 GET /informes — Fetch all informe resource
 POST /informes— Create a new informe resource
@@ -11,6 +27,7 @@ PUT /informe/{id} — Update a informe resource by id
 DELETE /informe/{id}- Delete a informe resource by id
 
 Crear un archivo .env en caso de que no exista:
+
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=
@@ -30,17 +47,23 @@ CACHE_DRIVER=file
 QUEUE_DRIVER=sync
 
 Dentro de lumen-api, utilizar los comandos:
-> composer update (obtiene las dependencias actualizadas indicadas dentro del archivo composer.json)
+> composer update
+(obtiene las dependencias actualizadas indicadas dentro del archivo composer.json)
 
-> php -S localhost:8000 -t public (inicia un servidor php en el puerto 8000, el cual es usado en el cliente para enviar y recibir peticiones) (si se usa otro servidor, las URLs usadas en el proyecto de Vue, deberan ser cambiadas)
+> php -S localhost:8000 -t public
+(inicia un servidor php en el puerto 8000, el cual es usado en el cliente para enviar y recibir peticiones) (si se usa otro servidor, las URLs usadas en el proyecto de Vue, deberan ser cambiadas)
 
 
-vue-app:
+**vue-app**:
 Proyecto Vue, usado como cliente.
 
-Comandos:
-> npm install (obtiene las dependencias y crea la carpeta node_modules)
-> npm run serve (inica el servidor, generalemente en localhost:8080)
+Dentro de la carpeta vue-app usar los comandos:
+> npm install
+(obtiene las dependencias y crea la carpeta node_modules)
+***En caso de que de un error, se recomienda eliminar el archivo "package-lock.json" y volver a utilizar el comando***
+
+> npm run serve
+(inica el servidor, generalemente en localhost:8080)
 
 ------------------------
 Para que el proyecto funcione en su totalidad, la base de datos tiene que estar montada, el servidor de Lumen y el servidor de Vue funcionando.

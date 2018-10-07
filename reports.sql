@@ -42,8 +42,10 @@ CREATE TABLE `informes` (
 --
 
 INSERT INTO `informes` (`id`, `titulo`, `descripcion`, `fechalimite`, `created_at`, `updated_at`) VALUES
-(1, 'Escalera rota', 'La escalera esta desoldada', '2018-09-28', NULL, NULL),
-(2, 'Caño pinchado', 'Un caño esta pinchado en la torre 5, perdida de aceite', '2018-09-30', NULL, NULL);
+(1, 'Escalera rota', 'La escalera esta desoldada', '2018-10-28', NULL, NULL),
+(2, 'Caño pinchado', 'Un caño esta pinchado en la torre 5, perdida de aceite', '2018-10-30', NULL, NULL),
+(3, 'Herramientas en mal estado', 'Las herramientas del taller mecanico, presentan desgastes', '2018-11-15', NULL, NULL),
+(4, 'Perdida de agua', 'Se observa un charco de agua en la entrada a la planta, posiblemente por un caño de agua en mal estado', '2018-9-15', NULL, NULL);
 
 -- --------------------------------------------------------
 

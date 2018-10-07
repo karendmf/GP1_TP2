@@ -1,4 +1,4 @@
-# vuetify-informes
+# Informes
 
 ## Project setup
 ```

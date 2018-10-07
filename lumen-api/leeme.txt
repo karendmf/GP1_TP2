@@ -1,4 +1,5 @@
-Se modifica el archivo .env para configurar la coneccion a la base.
+"Tutorial"
+Se modifica el archivo .env para configurar la conexion a la base.
 carpeta vendor:
 composer update 
 Se inicia un servidor:

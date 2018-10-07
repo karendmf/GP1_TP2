@@ -8,6 +8,7 @@
                 <v-list-tile ripple>
                     <v-list-tile-content>
                         <v-list-tile-sub-title>Ultima actualización:</v-list-tile-sub-title>
+                        <!-- Uso de datos de la respuesta en formato JSON -->
                         <v-list-tile-sub-title>{{clima.channel.item.condition.date.substring(5, 25)}}</v-list-tile-sub-title>
                     </v-list-tile-content>
                 </v-list-tile>
@@ -49,13 +50,23 @@
         },
         mounted() {
             moment.locale('es')
+
+            // Id de la ciudad, sacado del sitio de Yahoo clima
             const woeid = '466868';
+
+            // Seleccionamos que datos queremos pedir a la API
             const select = 'wind,atmosphere,item.condition';
+
+            // Se arma la url
             let url =
                 `https://query.yahooapis.com/v1/public/yql?q=select ${select} from weather.forecast where woeid=${woeid} and u='c' &format=json`
             var self = this;
+
+            // Se hace la petición
             axios.get(url)
                 .then(function (response) {
+
+                    // Guardamos la respuesta en una variable, para despues recorrerla en el HTML
                     self.clima = response.data.query.results;
                     //console.log('clima: ', response.data.query.results);
                 })
