@@ -73,7 +73,7 @@ export default {
                             compressed.push(a);
                         }
                     }
-                    //console.log('datos: ', compressed);
+                    //console.log('Peticion: ', compressed);
 
                     // Una vez creado el array con los datos deseados, lo recorremos y agregamos las filas
                     var valor;
@@ -86,7 +86,7 @@ export default {
                     const options = {
                         title: "Informes a cerrar por mes"
                     }
-
+                    //console.log('Respuesta: ', data);
                     // Enviamos la tabla creada llamada "data", y las opciones. Como respuesta obtenemos un JSON, el cual la API de Charts se encarga de "desarmarlo" y dibujar el grafico.
                     chart.draw(data, options);
                 });

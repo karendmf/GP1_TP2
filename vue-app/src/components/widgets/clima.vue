@@ -2,7 +2,7 @@
     <div id="clima">
         <v-card color="cyan darken-1" class="white--text" v-if="clima.channel">
             <v-card-title primary-title>
-                <div class="headline">El clima en Neuquén</div>
+                <div class="headline">Clima en {{ clima.channel.location.city}}</div>
             </v-card-title>
             <v-list two-line v-if="clima.channel">
                 <v-list-tile ripple>
@@ -55,7 +55,7 @@
             const woeid = '466868';
 
             // Seleccionamos que datos queremos pedir a la API
-            const select = 'wind,atmosphere,item.condition';
+            const select = 'location,wind,atmosphere,item.condition';
 
             // Se arma la url
             let url =

@@ -58,7 +58,7 @@ Dentro de lumen-api, utilizar los comandos:
 Proyecto Vue, usado como cliente.
 
 Dentro de la carpeta vue-app usar los comandos:
-> npm install
+> npm install --save
 (obtiene las dependencias y crea la carpeta node_modules)
 ***En caso de que de un error, se recomienda eliminar el archivo "package-lock.json" y volver a utilizar el comando***
 

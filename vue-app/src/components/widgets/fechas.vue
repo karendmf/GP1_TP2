@@ -50,7 +50,7 @@ export default {
         axios.get(url)
             .then(function (response) {
                 self.eventos = response.data.items;
-                //console.log('eventos: ', self.eventos);
+                //console.log('Fechas: ', self.eventos);
 
             })
     }
